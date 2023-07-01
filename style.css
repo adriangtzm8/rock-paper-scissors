@@ -1,0 +1,54 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+html {
+    height: 100%;
+}
+
+.header-title {
+    display: flex;
+    justify-content: center;
+    background-color: #F5F5F5;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #F2EAD3;
+    padding: 10px;
+    flex: 1;
+    color: #3F2305;
+}
+
+.game-container > h2 {
+    margin-left: 50px;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background-color: #3F2305;
+    padding: 20px;
+    
+}
+
+.selection {
+    background-color: #DFD7BF;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    color: #3F2305
+}
+
+button {
+    padding: 5px 16px;
+    border-radius: 8px;
+    border: none;
+    font-size: 20px;
+    color: #3F2305;
+}

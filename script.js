@@ -1,4 +1,19 @@
+const playerText = document.querySelector('.playerText');
+const computerText = document.querySelector('.computerText');
+const resultText = document.querySelector('.resultText');
+const buttons = document.querySelectorAll('button');
+let player;
+let computer;
 
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        player = button.textContent;
+        playerText.textContent = `Player: ${player}`;
+        computer = getComputerChoice();
+        computerText.textContent = `Computer: ${computer}`;
+        resultText.textContent = `Result: ` + checkWinner(player, computer);
+    })
+})
 
 function getComputerChoice()
 {
@@ -7,20 +22,40 @@ function getComputerChoice()
     // Depending on number return rock, paper or scissors
     if (random == 1)
     {
-        return "rock";
+        return "Rock";
     }
     else if (random == 2)
     {
-        return "paper";
+        return "Paper";
     }
     else
     {
-        return "scissors";
+        return "Scissors";
     }
     
 }
 
-function getUserChoice()
+function checkWinner(player, computer)
+{
+    if (player == computer)
+    {
+        return "It's a Tie!";
+    }
+    else if (computer == 'Rock')
+    {
+        return (player == 'Paper' ? `You win ${player} beats ${computer}` : `You lose ${computer} beats ${player}`);
+    }
+    else if (computer == 'Paper')
+    {
+        return (player == 'Scissors' ? `You win ${player} beats ${computer}` : `You lose ${computer} beats ${player}`);
+    }
+    else if (computer == 'Scissors')
+    {
+        return (player == 'Rock' ? `You win ${player} beats ${computer}` : `You lose ${computer} beats ${player}`);
+    }
+
+}
+/* function getUserChoice()
 {
     // Ask user for input
     const userSelection = prompt("Select:");
@@ -41,7 +76,7 @@ function getUserChoice()
     return newUserSelection;
 }  
 
-function game()
+function game(userChoice)
 {
     let userCount = 0;
     let computerCount = 0;
@@ -62,7 +97,7 @@ function game()
         {
             console.log(`Player wins: ${userCount}\nComputer wins: ${computerCount}`);
         }
-        const userSelection = getUserChoice();
+        const userSelection = userChoice;
         const computerChoice = getComputerChoice();
         
         if (userSelection == computerChoice)
@@ -103,5 +138,6 @@ function game()
     }
     
 }
+*/
 
-game();
+
