@@ -18,6 +18,22 @@ buttons.forEach((button) => {
         resultText.textContent = `Result: ` + checkWinner(player, computer);
         playerScoreText.textContent = `Player score: ${playerScore}`;
         computerScoreText.textContent = `Computer score: ${computerScore}`;
+        
+        if (playerScore >= 5)
+        {
+            playerScore = 0;
+            computerScore = 0;
+            resultText.textContent = 'You won the game congrats!';
+            
+
+        }
+        else if (computerScore >= 5)
+        {
+            playerScore = 0;
+            computerScore = 0;
+            resultText.textContent = 'You lost the game! Try again';
+            }  
+        
     })
 })
 
@@ -42,7 +58,8 @@ function getComputerChoice()
 }
 
 function checkWinner(player, computer)
-{
+{  
+
     if (player == computer)
     {
         return "It's a Tie!";
