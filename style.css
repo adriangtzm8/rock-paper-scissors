@@ -4,6 +4,7 @@ body {
     height: 100%;
     padding: 0;
     margin: 0;
+    
 }
 html {
     height: 100%;
@@ -27,7 +28,16 @@ html {
 
 .game-container > h2 {
     margin-left: 50px;
+    font-size: 35px;
 }
+
+
+.score-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
 .button-container {
     display: flex;
     justify-content: center;
@@ -51,4 +61,8 @@ button {
     border: none;
     font-size: 20px;
     color: #3F2305;
+}
+
+button > img {
+    width: 70px;
 }

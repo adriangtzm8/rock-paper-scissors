@@ -2,16 +2,22 @@ const playerText = document.querySelector('.playerText');
 const computerText = document.querySelector('.computerText');
 const resultText = document.querySelector('.resultText');
 const buttons = document.querySelectorAll('button');
+const playerScoreText = document.querySelector('.player-score');
+const computerScoreText = document.querySelector('.computer-score');
 let player;
 let computer;
+let playerScore = 0;
+let computerScore = 0;
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        player = button.textContent;
+        player = button.className;
         playerText.textContent = `Player: ${player}`;
         computer = getComputerChoice();
         computerText.textContent = `Computer: ${computer}`;
         resultText.textContent = `Result: ` + checkWinner(player, computer);
+        playerScoreText.textContent = `Player score: ${playerScore}`;
+        computerScoreText.textContent = `Computer score: ${computerScore}`;
     })
 })
 
@@ -41,18 +47,17 @@ function checkWinner(player, computer)
     {
         return "It's a Tie!";
     }
-    else if (computer == 'Rock')
+    else if ((computer == 'Rock' && player == 'Scissors') || (computer == 'Paper' && player == 'Rock') || (computer == 'Scissors' && player == 'Paper'))
     {
-        return (player == 'Paper' ? `You win ${player} beats ${computer}` : `You lose ${computer} beats ${player}`);
+        computerScore++;
+        return `You lose! ${computer} beats ${player}`;
     }
-    else if (computer == 'Paper')
+    else if ((player == 'Rock' && computer == 'Scissors') || (player == 'Paper' && computer == 'Rock') || (player == 'Scissors' && computer == 'Paper'))
     {
-        return (player == 'Scissors' ? `You win ${player} beats ${computer}` : `You lose ${computer} beats ${player}`);
+        playerScore++;
+        return `You win! ${player} beats ${computer}`;
     }
-    else if (computer == 'Scissors')
-    {
-        return (player == 'Rock' ? `You win ${player} beats ${computer}` : `You lose ${computer} beats ${player}`);
-    }
+
 
 }
 /* function getUserChoice()
